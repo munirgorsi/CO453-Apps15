@@ -3,7 +3,7 @@
 | ---- | ---- |
 **Name**: | Muhammad Munir |
 **Student ID**: | 22202969 |
-**Course:** | Computing |
+**Course:** | Bsc Cyber Security |
 **Module**: | CO453     |
 **Started**: | January 2021 |    
 

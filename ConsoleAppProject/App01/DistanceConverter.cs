@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace ConsoleAppProject.App01
 {
     /// <summary>
@@ -15,12 +17,18 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             OutputHeading();
+            InputMiles();
+            CalculateFeet();
+            OutputFeet();
         }
         /// <summary>
         /// Ask user to enter distance in miles as a double number
         /// </summary>
         private void InputMiles()
         {
+            Console.Write("Please enter the number of miles");
+            String Value = Console.ReadLine();
+            miles = Convert.ToDouble(Value);
 
         }
         private void CalculateFeet()

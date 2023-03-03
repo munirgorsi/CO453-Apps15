@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App01
     /// the equivalent distance in feet.
     /// </summary>
     /// <author>
-    /// Muhammad Munir version 0.1
+    /// Muhammad Munir version 0.2
     /// </author>
     public class DistanceConverter
     {
@@ -26,7 +26,7 @@ namespace ConsoleAppProject.App01
 
         public void MilesToFeet()
         {
-            OutputHeading();
+            OutputHeading("Converting Miles to Feet");
             InputMiles();
             CalculateFeet();
             OutputFeet();
@@ -36,14 +36,14 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void FeetToMiles()
         {
-            OutputHeading();
+            OutputHeading("Converting Feet to Miles");
             InputFeet();
             CalculateMiles();
             OutputMiles();
         }
         public void MilesToMetres()
         {
-            OutputHeading();
+            OutputHeading("Converting Miles to Metres");
             InputMiles();
             CalculateMetres();
             OutputMetres();
@@ -100,12 +100,15 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine(miles + "miles is " + metres + "metres!");
         }
-        private void OutputHeading()
+        private void OutputHeading(String prompt)
         {
             Console.WriteLine("==================================================");
-            Console.WriteLine("              Convert Miles to Feet               ");
+            Console.WriteLine("                Distance Converter                ");
             Console.WriteLine("                By Muhammad Munir                 ");
             Console.WriteLine("==================================================");
+
+            Console.WriteLine(prompt);
+            Console.WriteLine();
         }
 
     }

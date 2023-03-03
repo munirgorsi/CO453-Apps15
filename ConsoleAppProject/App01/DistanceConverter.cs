@@ -41,6 +41,9 @@ namespace ConsoleAppProject.App01
             CalculateMiles();
             OutputDistance(feet, nameof(feet), miles, nameof(miles));
         }
+        /// <summary>
+        /// prompt user to enter distance in feet 
+        /// </summary>
         public void MilesToMetres()
         {
             OutputHeading("Converting Miles to Metres");

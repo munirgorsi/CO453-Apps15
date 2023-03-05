@@ -1,4 +1,6 @@
-﻿using ConsoleAppProject.App01;
+﻿using System;
+
+using ConsoleAppProject.App01;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
@@ -26,8 +28,15 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.Beep();
 
-            DistanceConverter converter  = new DistanceConverter();
-            converter.ConvertDistance  ();
+            Console.WriteLine("1. Distance Converter");
+            Console.WriteLine("2. BMI Calculater");
+            Console.WriteLine();
+            Console.Write("Please Select your app choice > ");
+            if (choice == "1")
+
+          
+           
+
         }
     }
 }

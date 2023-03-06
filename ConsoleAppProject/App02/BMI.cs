@@ -5,7 +5,7 @@ namespace ConsoleAppProject.App02
     public enum UnitSystem
     {
         Matric,
-        Imperial 
+        Imperial
     }
     public class BMI
     {

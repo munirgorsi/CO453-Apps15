@@ -41,7 +41,7 @@ namespace ConsoleAppProject.App01
         }
         public void ConvertDistance()
         {
-           ConsoleHelper.OutputHeading("Distance Converter");
+           OutputHeading();
 
             fromUnit = SelectUnit(" Please select from the distance unit > ");
             toUnit   = SelectUnit(" Please select the distance unit > ");
@@ -130,7 +130,15 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine($"\n {fromDistance} {fromUnit}" + $" is {toDistance}{toUnit}!\n");
         }
-     
+     private void OutputHeading(String prompt)
+        {
+            Console.WriteLine("\n==============================");
+            Console.WriteLine("        Distance converter      ");
+            Console.WriteLine("        By Muhammad Munir       ");
+            Console.WriteLine("===============================\n");
+            Console.WriteLine(prompt);
+            Console.WriteLine();
+        }
      
     }
 

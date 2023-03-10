@@ -35,18 +35,18 @@ namespace ConsoleAppProject
             choices[0] = "Distance Converter";
             choices[1] = "BMI calculator";
 
-            //int choice = ConsoleHelper.SelectChoice(choices);
+            int choice = ConsoleHelper.SelectChoice(choices);
 
 
             ConsoleHelper.OutputHeading("Please select you choice of app which you wish to use ");
             //ConsoleHelper.SelectChoice(choices);
 
-           // if (choices == 1)
+            if (choices == 1)
             {
                 DistanceConverter converter = new DistanceConverter();
                 //converter.Run();
             }
-            //else if (choices == 2)
+            else if (choices == 2)
             {
                 //BMI bmi = new BMI();
                 BMI calculator = new BMI();

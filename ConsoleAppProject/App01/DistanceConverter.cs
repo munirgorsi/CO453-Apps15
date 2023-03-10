@@ -41,7 +41,7 @@ namespace ConsoleAppProject.App01
         }
         public void ConvertDistance()
         {
-           OutputHeading();
+           //OutputHeading();
 
             fromUnit = SelectUnit(" Please select from the distance unit > ");
             toUnit   = SelectUnit(" Please select the distance unit > ");

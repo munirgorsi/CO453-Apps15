@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collection.Generic;
-using System.Text;
 
 namespace ConsoleAppProject
 {
-    publice static class ConsoleHelper
+    public  class ConsoleHelper
     {
         public static void OutputHeading(string title)
         {

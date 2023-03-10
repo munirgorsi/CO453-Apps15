@@ -18,7 +18,7 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
-        private static int choice;
+        
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -30,23 +30,27 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.Beep();
 
-            string[] choices = new string[]
-        {
-            "Distance Converter",
-            "BMI calculator"
-        };
-            ConsoleHelper.OutputTitle("Please select you choice of app which you wish to use ");
-            choice = ConsoleHelper.SelectChoice(choices);
+            string[] choices = new string[2];
 
-            if (choice == 1)
+            choices[0] = "Distance Converter";
+            choices[1] = "BMI calculator";
+
+            //int choice = ConsoleHelper.SelectChoice(choices);
+
+
+            ConsoleHelper.OutputHeading("Please select you choice of app which you wish to use ");
+            //ConsoleHelper.SelectChoice(choices);
+
+           // if (choices == 1)
             {
                 DistanceConverter converter = new DistanceConverter();
-                converter.Run();
+                //converter.Run();
             }
-            else if (choice = = 2)
+            //else if (choices == 2)
             {
+                //BMI bmi = new BMI();
                 BMI calculator = new BMI();
-                calculator.Run();
+                //calculator.Run();
 
             }
            

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-namespace ConsoleAppProject.App03
+namespace WebApps.Models
 {
     /// <summary>
     /// Grade A is First Class   : 70 - 100
@@ -9,22 +9,13 @@ namespace ConsoleAppProject.App03
     /// Grade D is Third Class   : 40 - 49
     /// Grade F is Fail          :  0 - 39
     /// </summary>
-    public enum Grades
+    public class Student
     {
-        [Display(Name = "Fail")]
-        [Description("Referred")]
-        F,
-        [Display(Name = "III")]
-        [Description("BSc(Hons) Third Class")]
-        D,
-        [Display(Name = "II-2")]
-        [Description("BSc(Hons) Lower Second")]
-        C,
-        [Display(Name = "II-1")]
-        [Description("BSc(Hons) Upper Second")]
-        B,
-        [Display(Name = "1st")]
-        [Description("BSc(Hons) First Class")]
-        A
+      public int StudentId { get; set; }
+        [StringLength(20), Required]
+        public string Name { get; set; }
+        [Range(0, 100)]
+        {
+        public int Mark { get; set;}
     }
 }

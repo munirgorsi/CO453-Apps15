@@ -54,7 +54,11 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// Marks Input for each student between 0 to 100
         /// </summary>
-        public void InputMarks()
+        private void DisplayMenue()
+        {
+            throw new NotImplementedException();
+        }
+        private void InputMarks()
         {
             ConsoleHelper.OutputHeading ("Please Enter Mark for Each Student");
             for (int i = 0; i < Students.Length; i++)
@@ -69,7 +73,7 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
-        public void OutputMarks() 
+        private void OutputMarks() 
         {
 
         }
@@ -103,13 +107,20 @@ namespace ConsoleAppProject.App03
         public void CalculateStats()
         {
             double total = 0;
+            Minimum = HighestMark;
+            Maximum = 0;
             foreach (int mark in Marks)
             {
                 total = total + mark;
+                if (mark > Maximum) Maximum = mark;
+                if (mark < Minimum) Minimum = mark;
             }
             Mean = total / Marks.Length;
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public void CalculateGradeProfile()
         {
             for (int i = 0; i < GradeProfile.Length; i++)

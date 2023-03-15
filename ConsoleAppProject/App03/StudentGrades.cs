@@ -6,9 +6,15 @@ using ConsoleAppProject.Helpers;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// At the moment this class just tests the
-    /// Grades enumeration names and descriptions
+    /// This application will allow a tutor to enter a single mark of each of a list of 
+    /// students and it will convert that mark into a grade. The application will 
+    /// then be able to calculate simple statistics 
+    /// and also calculate and display a student grade profile.
     /// </summary>
+    
+    /// <author>
+    /// Muhammad Munir
+    /// </author>
     public class StudentGrades
     {
         // Constants (Grade Boundaries)
@@ -31,7 +37,7 @@ namespace ConsoleAppProject.App03
         
         // Attributes
         /// <summary>
-        /// 
+        /// Class Constructor & set up array for students
         /// </summary>
 
         public StudentGrades() 
@@ -45,8 +51,19 @@ namespace ConsoleAppProject.App03
             GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
         }
+        /// <summary>
+        /// Marks Input for each student between 0 to 100
+        /// </summary>
         public void InputMarks()
         {
+            ConsoleHelper.OutputHeading ("Please Enter Mark for Each Student");
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Marks[i] = (int) ConsoleHelper.InputNumber($"Enter{Students[i]} marks: ", LowestMark, HighestMark);
+            }
+            Console.WriteLine();
+            ConsoleHelper.OutputHeading("Students Marks System");
+            DisplayMenue("Please enter your choice > ");
 
         }
         /// <summary>
@@ -62,14 +79,48 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.F;
             }
-            else return Grades.D;
+            else if (mark >= LowestGradeD &&mark < LowestGradeC)
+            {
+                return Grades.D;
+            }
+            else if (mark >= LowestGradeC && mark < LowestGradeB)
+            {
+                return Grades.C;
+            }
+            else if(mark >= LowestGradeB && mark < LowestGradeA)
+            {
+                return Grades.B;
+            }
+            else if (mark >= LowestGradeA && mark <= HighestMark)
+            {
+                return Grades.A;
+            }
+            return Grades.F;
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public void CalculateStats()
         {
+            double total = 0;
+            foreach (int mark in Marks)
+            {
+                total = total + mark;
+            }
+            Mean = total / Marks.Length;
 
         }
         public void CalculateGradeProfile()
         {
+            for (int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
+            foreach (int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade]++;
+            }
 
         }
     }

@@ -21,7 +21,7 @@ namespace ConsoleApp.Tests
             // Arrange
             Grades expectedGrade = Grades.F;
             // Act
-            Grades actualGrade = convert.ConvertToGrade(0);
+            Grades actualGrade = converter.ConvertToGrade(0);
             
             // Assert
 
@@ -34,7 +34,7 @@ namespace ConsoleApp.Tests
             // Arrange
             Grades expectedGrade = Grades.F;
             // Act
-            Grades actualGrade = convert.ConvertToGrade(39);
+            Grades actualGrade = converter.ConvertToGrade(39);
 
             // Assert
 

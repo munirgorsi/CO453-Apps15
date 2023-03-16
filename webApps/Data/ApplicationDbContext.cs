@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿/*using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WebApps.Models;
+using WebApps;
 
 namespace webApps.Data
 {
@@ -12,4 +12,4 @@ namespace webApps.Data
         }
         public DbSet<Student> Students { get; set; }
     }
-}
+}*/

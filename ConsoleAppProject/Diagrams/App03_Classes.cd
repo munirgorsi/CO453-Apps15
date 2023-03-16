@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleAppProject.App03.StudentGrades">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAACAAAAAAAogAAiQAAQAAEAAQAAEAEQCQCEAABI=</HashCode>
+      <FileName>App03\StudentGrades.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Grades" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleAppProject.Helpers.ConsoleHelper">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQAAAAAAAAACAAgAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Helpers\ConsoleHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleAppProject.Program">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <AssociationLine Name="StudentGrades" Type="ConsoleAppProject.App03.StudentGrades" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="2.052" />
+        <Point X="2.375" Y="2.052" />
+        <Point X="2.375" Y="1.437" />
+        <Point X="3.5" Y="1.437" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StudentGrades" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="ConsoleAppProject.App03.Grades">
+    <Position X="7" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtAEAAAA=</HashCode>
+      <FileName>App03\Grades.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

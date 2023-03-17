@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+using System.Threading;
 using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App03
@@ -142,7 +144,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// OutPut of Marks with Grades and Class for all students 
         /// </summary>
         public void OutputMarks()
         {
@@ -157,6 +159,10 @@ namespace ConsoleAppProject.App03
             ConsoleHelper.OutputHeading("Student Marks System");
             DisplayMenu();
         }
+        /// <summary>
+        /// Converstion of marks to Grades 
+        /// </summary>
+        
         public Grades ConvertToGrade(int mark)
         {
             if (mark >= LowestMark && mark < LowestGradeD)
@@ -186,6 +192,9 @@ namespace ConsoleAppProject.App03
             }
             return Grades.F;
         }
+        /// <summary>
+        /// Grades Profile calculation 
+        /// </summary>
         public void CalculateGradeProfile()
         {
             ConsoleHelper.OutputTitle("Grade Profile:");
@@ -200,31 +209,57 @@ namespace ConsoleAppProject.App03
             }
             OutputGradeProfile();
         }
+        /// <summary>
+        /// Grades profile output with all Grades.
+        /// </summary>
         public void OutputGradeProfile()
         {
             Grades grade = Grades.None;
             Console.WriteLine();
             ConsoleHelper.OutputHeading("The Student Grade Profile");
-            foreach (int count in GradeProfile)
-            {
-                int percentage = count * 100 / Marks.Length;
-                Console.WriteLine($"Grade {grade} - {percentage}% | Count {count}");
-                grade++;
+            int[] counts = new int[5];
 
+            foreach (int mark in Marks)
+            {
+                if (mark >= 70)
+                {
+                    counts[4]++;
+                }
+               else if (mark >=60)
+                {
+                    counts[3]++;
+                }
+                else if (mark >= 50)
+                {
+                    counts[2]++;
+                }
+                else if (mark >= 40)
+                {
+                    counts[1]++;
+                }
+                else
+                {
+                    counts[0]++;
+                }
             }
+            int total =Marks.Length;
+            Console.WriteLine($"A Grade: {((double)counts[4] / total)*100:F2}%");
+            Console.WriteLine($"B Grade: {((double)counts[3] / total) * 100:F2}%");
+            Console.WriteLine($"C Grade: {((double)counts[2] / total) * 100:F2}%");
+            Console.WriteLine($"D Grade: {((double)counts[1] / total) * 100:F2}%");
+            Console.WriteLine($"F Grade: {((double)counts[0] / total) * 100:F2}%");
             Console.WriteLine();
-
-
+            ConsoleHelper.OutputHeading("Student Marks System");
+            DisplayMenu();
         }
-
-        public Grades Grades
+        /// <summary>
+        /// exit command
+        /// </summary>
+        public void quit()
         {
-            get => default;
-            set
-            {
-            }
-        }
-    }
+            Environment.Exit(0);   
+        } 
+    }   
 }
 
 

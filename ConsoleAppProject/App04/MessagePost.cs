@@ -1,13 +1,22 @@
-﻿using System;
-using System.Text;
+﻿using CO453_ConsoleAppAnswer.App04;
+using System;
+using System.Collections.Generic;
 
-namespace CO453_ConsoleAppAnswer.App04
+namespace ConsoleAppProject.App04
 {
+    ///<summary>
+    /// This class stores information about a post in a social network. 
+    /// The main part of the post consists of a (possibly multi-line)
+    /// text message. Other data, such as author and time, are also stored.
+    /// </summary>
+    /// <author>
+    /// Michael Kölling and David J. Barnes
+    /// version 0.1
+    /// </author>
     public class MessagePost : Post
     {
         // an arbitrarily long, multi-line message
         public String Message { get; }
-
 
         /// <summary>
         /// Constructor for objects of class MessagePost.
@@ -18,33 +27,25 @@ namespace CO453_ConsoleAppAnswer.App04
         /// <param name="text">
         /// The text of this post.
         /// </param>
-        public MessagePost(String author,
-            String text) : base(author)
+        public MessagePost(string userName, string message) : base(userName)
         {
-            Message = text;
+            Message = message;
         }
 
-        public override string GetSummary()
+
+        ///<summary>
+        /// Display the details of this post.
+        /// 
+        /// (Currently: Print to the text terminal. This is simulating display 
+        /// in a web browser for now.)
+        ///</summary>
+        public void Display()
         {
-            return base.GetSummary() + $" Message: {Message}";
+            Console.WriteLine();
+            Console.WriteLine($"    Author: {Username}");
+            Console.WriteLine($"    Message: {Message}");
         }
 
-        /// <summary>
-        /// Return as text the author's name, the time elapsed,
-        /// the number of likes and how many comments the post has
-        /// </summary>
-        public override string ToString()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            builder.AppendLine($"\tMessage Post");
-            builder.AppendLine("\t----------");
-            builder.AppendLine($"\tFilename: {Message}");
-
-            builder.Append(base.ToString());
-
-            return builder.ToString();
-        }
 
     }
 }

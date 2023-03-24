@@ -1,9 +1,8 @@
-﻿using System;
-
-using ConsoleAppProject.App01;
+﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
-using ConsoleAppProject.App02;
+using System;
 
 namespace ConsoleAppProject
 {
@@ -13,68 +12,53 @@ namespace ConsoleAppProject
     /// to start App01 to App05 for CO453 CW1
     /// 
     /// This Project has been modified by:
-    /// Muhammad Munir 05/02/2023
+    /// Derek Peacock 05/02/2022
     /// </summary>
     public static class Program
     {
-        public static StudentGrades StudentGrades
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
-            Console.WriteLine("                   By Muhammad Munir              ");
+            Console.WriteLine("                by Derek Peacock");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
-            Console.Beep();
 
-            string[] choices = new string[3];
+            SelectApp();
+        }
 
-            choices[0] = "Distance Converter";
-            choices[1] = "BMI calculator";
-            choices[2] = "Students Grades Menu";
-            
+        public static void SelectApp()
+        {
+            DistanceConverter converter = new DistanceConverter();
+            postsUI app04 = new
 
-            int choice = ConsoleHelper.SelectChoice(choices);
-
-
-            /*ConsoleHelper.OutputHeading("Please select you choice of app which you wish to use ");
-            ConsoleHelper.SelectChoice(choices);*/
-
-            if (choice == 1)
+            string[] choices =
             {
-                DistanceConverter converter = new DistanceConverter();
-               // converter.Run();
-            }
-            else if (choice == 2)
+                "App01: Distance Converter",
+                "App02: BMI Calculator",
+                "App03: Student Grades",
+                "App04: Network App",
+                "Quit"
+            };
+
+            bool quit = false;
+
+            while (quit != true)
             {
-                //BMI bmi = new BMI();
-                BMI calculator = new BMI();
-                //calculator.Run();
+                int choice = ConsoleHelper.SelectChoice(choices);
 
+                switch (choice)
+                {
+                    case 1: converter.Run(); break;
+                    case 2: break;
+                    case 3: break;
+                    case 4: app04.Run(); break;
+                    case 5: quit = true; break;
+                }
             }
-            else if (choice == 3)
-            {
-                
-                StudentGrades stu = new StudentGrades();
-                stu.Run();
-
-            }
-          
-
-
-
-
-
         }
     }
 }

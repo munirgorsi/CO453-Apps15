@@ -42,6 +42,7 @@ namespace ConsoleAppProject
             choices[0] = "Distance Converter";
             choices[1] = "BMI calculator";
             choices[2] = "Students Grades Menu";
+            
 
             int choice = ConsoleHelper.SelectChoice(choices);
 
@@ -68,7 +69,7 @@ namespace ConsoleAppProject
                 stu.Run();
 
             }
-
+          
 
 
 

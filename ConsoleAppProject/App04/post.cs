@@ -148,6 +148,7 @@ namespace CO453_ConsoleAppAnswer.App04
                 }
 
                 builder.AppendLine();
+
             }
 
             return builder.ToString();

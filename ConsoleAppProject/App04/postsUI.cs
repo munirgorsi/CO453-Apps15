@@ -52,7 +52,6 @@ namespace ConsoleAppProject.App04
                 }
             } while (!quit);
         }
-
         private void DisplayAllPosts()
         {
             news.Display();
@@ -128,6 +127,7 @@ namespace ConsoleAppProject.App04
         ///<summary>
         ///this method ask user to comment on selected post
         ///</summary
+       
         private void LikePosts()
         {
             ConsoleHelper.OutputTitle("Like Post");

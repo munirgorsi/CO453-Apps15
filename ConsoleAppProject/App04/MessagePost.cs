@@ -1,5 +1,4 @@
-﻿using CO453_ConsoleAppAnswer.App04;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
@@ -10,7 +9,7 @@ namespace ConsoleAppProject.App04
     /// text message. Other data, such as author and time, are also stored.
     /// </summary>
     /// <author>
-    /// Michael Kölling and David J. Barnes
+    /// Muhammad Munir
     /// version 0.1
     /// </author>
     public class MessagePost : Post
@@ -39,13 +38,13 @@ namespace ConsoleAppProject.App04
         /// (Currently: Print to the text terminal. This is simulating display 
         /// in a web browser for now.)
         ///</summary>
-        public void Display()
+        public override void Display()
         {
+            base.Display();
+
             Console.WriteLine();
             Console.WriteLine($"    Author: {Username}");
             Console.WriteLine($"    Message: {Message}");
         }
-
-
     }
 }

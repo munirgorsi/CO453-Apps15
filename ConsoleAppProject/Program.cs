@@ -18,12 +18,12 @@ namespace ConsoleAppProject
     {
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Green;
 
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
-            Console.WriteLine("                by Derek Peacock");
+            Console.WriteLine("                by Muhammad Munir");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
@@ -33,7 +33,7 @@ namespace ConsoleAppProject
         public static void SelectApp()
         {
             DistanceConverter converter = new DistanceConverter();
-            postsUI app04 = new
+            PostsUI app04 = new PostsUI();
 
             string[] choices =
             {
@@ -52,10 +52,10 @@ namespace ConsoleAppProject
 
                 switch (choice)
                 {
-                    case 1: converter.Run(); break;
+                    //case 1: converter.Run(); break;
                     case 2: break;
                     case 3: break;
-                    case 4: app04.Run(); break;
+                    case 4: app04.DisplayMenue(); break;
                     case 5: quit = true; break;
                 }
             }

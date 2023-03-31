@@ -1,5 +1,4 @@
-﻿using CO453_ConsoleAppAnswer.App04;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 
@@ -18,19 +17,27 @@ namespace ConsoleAppProject.App04
     ///<author>
     ///  Michael Kölling and David J. Barnes
     ///  version 0.1
+    ///  Modified by ...
     ///</author> 
     public class NewsFeed
     {
+        public const string Author = "Muhammad Munir";
+
         private readonly List<Post> posts;
-       
+
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
-            posts = new List<MessagePost>();
-            
+            posts = new List<Post>();
+
+            MessagePost post = new MessagePost(Author, "i like VS 2019");
+            AddMessagePost(post);
+
+            PhotoPost photoPost = new PhotoPost(Author, "Photo1.jpg", "VS 2019");
+            AddPhotoPost(photoPost);
         }
 
 
@@ -41,7 +48,6 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-          
             posts.Add(message);
         }
 
@@ -52,7 +58,35 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
-            photos.Add(photo);
+            posts.Add(photo);
+        }
+
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \n Post with ID = {id} does not exist!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following post {id} has been removed!\n");
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+            return null;
         }
 
         ///<summary>
@@ -67,9 +101,43 @@ namespace ConsoleAppProject.App04
                 post.Display();
                 Console.WriteLine();   // empty line between posts
             }
+        }
 
-          
+
+        /// <summary>
+        /// Display all the posts where the author name matches
+        /// </summary>
+        public void DisplayByAuthor(string author)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                {
+                    post.Display();
+                    Console.WriteLine();
+                }
+            }
+        }
+
+        public int GetNumberOfPosts()
+        {
+            return posts.Count;
+        }
+        internal void UnlikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post != null)
+            {
+                post.Unlike();
+            }
+            else
+            {
+                Console.WriteLine("Error ID cannot be Found");
+            }
         }
     }
-
 }
+
+
+

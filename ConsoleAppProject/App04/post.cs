@@ -1,31 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleAppProject.App04
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Post
     {
-        private int likes;
-
-        private readonly List<string> comments;
-
-        // username of the post's author
-        public string Username { get; set; }
+        public int PostId { get; }
+        public string Username { get; }
         public DateTime Timestamp { get; }
 
-        public Post(string userName)
+        private static int instances = 0;
+        private int likes;
+
+        private readonly List<String> comments;
+
+
+        public Post(string author)
         {
+            instances++;
+            PostId = instances;
+
+            this.Username = author;
             Timestamp = DateTime.Now;
-            Username = userName;
 
             likes = 0;
             comments = new List<string>();
         }
 
-        /// <summary>
-        /// Record one more 'Like' indication from a user.
-        /// </summary>
         public void Like()
         {
             likes++;
@@ -48,8 +52,9 @@ namespace ConsoleAppProject.App04
         /// <param name="text">
         /// The new comment to add.
         /// </param>        
-        public void AddComment(string text)
+        public void AddComment(String text, string author)
         {
+            // todo: store persons name
             comments.Add(text);
         }
 
@@ -59,10 +64,11 @@ namespace ConsoleAppProject.App04
         /// (Currently: Print to the text terminal. This is simulating display 
         /// in a web browser for now.)
         ///</summary>
-        public void Display()
+        public virtual void Display()
         {
             Console.WriteLine();
-            Console.WriteLine($"    Author: {Username}");
+            Console.WriteLine($"    Post ID:      {PostId}");
+            Console.WriteLine($"    Author:       {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
 
@@ -81,7 +87,9 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine($"    {comments.Count}  comment(s).");
+                foreach (string comment in comments)
+                    Console.WriteLine("    " + comment);
             }
         }
 
@@ -95,8 +103,9 @@ namespace ConsoleAppProject.App04
         /// </param> 
         /// <returns>
         /// A relative time string for the given time
-        /// </returns>      
-        private string FormatElapsedTime(DateTime time)
+        /// </returns>
+
+        public String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;
             TimeSpan timePast = current - time;
